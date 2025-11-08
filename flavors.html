@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Winder's Funnel Cakes - Flavors</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo"><a href="index.html">Winder's Funnel Cakes</a></div>
+        <button class="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="flavors.html">Flavors</a></li>
+                <li><a href="booking.html">Book Our Truck</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h1>Our Delicious Funnel Cake Flavors</h1>
+            <p style="text-align: center; margin-bottom: 30px;">From classic favorites to seasonal specialties, we have a funnel cake for everyone!</p>
+            
+            <div class="flavor-grid">
+                
+                <div class="flavor-item">
+                    <h3>The Classic Winder</h3>
+                    <p>The original and the best! Dusted generously with a cloud of powdered sugar.</p>
+                </div>
+
+                <div class="flavor-item">
+                    <h3>Strawberry Cheesecake Dream</h3>
+                    <p>Topped with sweet strawberry glaze, creamy cheesecake bites, and whipped cream.</p>
+                </div>
+
+                <div class="flavor-item">
+                    <h3>Cinnamon Roll Supreme</h3>
+                    <p>Coated in a cinnamon-sugar mixture and drizzled with a rich cream cheese frosting.</p>
+                </div>
+
+                <div class="flavor-item">
+                    <h3>S'mores Campfire Treat</h3>
+                    <p>Loaded with melted chocolate, toasted marshmallows, and graham cracker crumbles.</p>
+                </div>
+                
+                <div class="flavor-item">
+                    <h3>Chocolate Overload</h3>
+                    <p>Drizzled with chocolate syrup, chocolate chips, and a dusting of cocoa powder.</p>
+                </div>
+                
+                <div class="flavor-item">
+                    <h3>Seasonal Apple Pie</h3>
+                    <p>Warm, spiced apple filling, a caramel drizzle, and a scoop of vanilla ice cream (when available).</p>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        &copy; 2025 Winder's Funnel Cakes | Made with Love and Powdered Sugar
+    </footer>
+
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+
+</body>
+</html>
