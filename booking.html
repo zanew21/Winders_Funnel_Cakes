@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Winder's Funnel Cakes - Book Us</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo"><a href="index.html">Winder's Funnel Cakes</a></div>
+        <button class="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="flavors.html">Flavors</a></li>
+                <li><a href="booking.html">Book Our Truck</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h1>Request Winder's Funnel Cakes for Your Event</h1>
+            <p style="text-align: center; margin-bottom: 30px;">We'd love to bring the sweetness to your wedding, corporate event, festival, or private party!</p>
+            
+            <form action="YOUR_SERVER_ENDPOINT" method="POST">
+                
+                <div class="form-group">
+                    <label for="event-type">Type of Event <span style="color: red;">*</span></label>
+                    <select id="event-type" name="event-type" required>
+                        <option value="">-- Select Event Type --</option>
+                        <option value="Wedding">Wedding</option>
+                        <option value="Corporate">Corporate Event</option>
+                        <option value="Birthday">Birthday Party</option>
+                        <option value="Festival">Public Festival/Fair</option>
+                        <option value="Other">Other (Specify in Details)</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="name">Your Full Name <span style="color: red;">*</span></label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address <span style="color: red;">*</span></label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                
+                <div class="form-group">
+                    <label for="date">Desired Event Date <span style="color: red;">*</span></label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="guests">Estimated Number of Guests</label>
+                    <input type="number" id="guests" name="guests" min="50" placeholder="e.g., 150">
+                </div>
+                
+                <div class="form-group">
+                    <label for="location">Event Location/Address <span style="color: red;">*</span></label>
+                    <input type="text" id="location" name="location" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="details">Additional Details or Requests</label>
+                    <textarea id="details" name="details" rows="5" placeholder="Tell us about your event, specific flavors you'd like, or any special timing requirements."></textarea>
+                </div>
+                
+                <button type="submit">Submit Booking Request</button>
+            </form>
+            
+            <p style="text-align: center; margin-top: 20px; font-style: italic;">We will review your request and get back to you within 48 hours!</p>
+        </section>
+    </main>
+
+    <footer>
+        &copy; 2025 Winder's Funnel Cakes | Made with Love and Powdered Sugar
+    </footer>
+
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+
+</body>
+</html>

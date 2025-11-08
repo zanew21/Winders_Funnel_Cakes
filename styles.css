@@ -1,0 +1,256 @@
+/* style.css */
+
+:root {
+    --primary-color: #A0522D; /* Sienna Brown */
+    --secondary-color: #FFFACD; /* Lemon Chiffon (for the batter/powdered sugar feel) */
+    --accent-color: #FF4500; /* Orange Red (for toppings/cherry) */
+    --text-color: #333;
+    --font-family: 'Arial', sans-serif;
+}
+
+/* Basic Reset & Base Styling */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family);
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--secondary-color);
+    padding-top: 60px; /* Space for fixed header */
+}
+
+/* --- Header & Navigation --- */
+header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.logo a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: none; /* Hidden by default on mobile */
+}
+
+.nav-links.active {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: var(--primary-color);
+    z-index: 999;
+}
+
+.nav-links li {
+    text-align: center;
+    padding: 15px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1em;
+    padding: 10px 20px;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+.nav-links a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.menu-toggle {
+    display: block; /* Shown by default on mobile */
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2em;
+    cursor: pointer;
+}
+
+/* --- Main Content Styling --- */
+main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h1, h2 {
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+section {
+    background-color: white;
+    padding: 30px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Homepage Specific --- */
+#hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('funnel_cake_placeholder.jpg') no-repeat center center/cover;
+    color: white;
+    text-align: center;
+    padding: 80px 20px;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 8px;
+}
+
+#hero h1 {
+    color: white;
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+#hero p {
+    font-size: 1.2em;
+}
+
+/* --- Flavors Page Specific --- */
+.flavor-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.flavor-item {
+    padding: 20px;
+    border: 1px solid var(--primary-color);
+    border-radius: 6px;
+    text-align: center;
+}
+
+.flavor-item h3 {
+    color: var(--accent-color);
+    margin-bottom: 10px;
+}
+
+/* --- Booking Form Specific --- */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="date"],
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+button[type="submit"] {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s;
+    width: 100%;
+}
+
+button[type="submit"]:hover {
+    background-color: var(--accent-color);
+}
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--primary-color);
+    color: white;
+    margin-top: 30px;
+}
+
+/* --- Desktop/Tablet Adaptation (Media Query) --- */
+@media (min-width: 768px) {
+    body {
+        padding-top: 80px; /* Adjust space for larger header */
+    }
+
+    header {
+        padding: 15px 40px;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-direction: row;
+        position: static;
+        width: auto;
+        background-color: transparent;
+    }
+
+    .nav-links li {
+        padding: 0 15px;
+        border-top: none;
+    }
+
+    .nav-links a {
+        padding: 5px 10px;
+    }
+
+    .menu-toggle {
+        display: none; /* Hide menu button on larger screens */
+    }
+
+    /* Homepage */
+    #hero {
+        padding: 120px 40px;
+    }
+
+    #hero h1 {
+        font-size: 3.5em;
+    }
+
+    /* Flavors Page */
+    .flavor-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 columns on desktop */
+    }
+
+    /* Booking Form */
+    button[type="submit"] {
+        width: auto;
+        display: block;
+        margin: 20px auto 0 auto;
+    }
+}
