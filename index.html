@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Winder's Funnel Cakes - Book Us</title>
+    <title>Winder's Funnel Cakes - Home</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -21,63 +21,27 @@
     </header>
 
     <main>
-        <section>
-            <h1>Request Winder's Funnel Cakes for Your Event</h1>
-            <p style="text-align: center; margin-bottom: 30px;">We'd love to bring the sweetness to your wedding, corporate event, festival, or private party!</p>
+        <section id="hero">
+            <h1>The Sweetest Rings in Town!</h1>
+            <p>Freshly made, perfectly fried, and dusted with powdered sugar perfection. Taste the tradition!</p>
+        </section>
+
+        <section id="about">
+            <h2>Our Sweet History</h2>
             
-            <form action="YOUR_SERVER_ENDPOINT" method="POST">
-                
-                <div class="form-group">
-                    <label for="event-type">Type of Event <span style="color: red;">*</span></label>
-                    <select id="event-type" name="event-type" required>
-                        <option value="">-- Select Event Type --</option>
-                        <option value="Wedding">Wedding</option>
-                        <option value="Corporate">Corporate Event</option>
-                        <option value="Birthday">Birthday Party</option>
-                        <option value="Festival">Public Festival/Fair</option>
-                        <option value="Other">Other (Specify in Details)</option>
-                    </select>
-                </div>
-                
-                <div class="form-group">
-                    <label for="name">Your Full Name <span style="color: red;">*</span></label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="email">Email Address <span style="color: red;">*</span></label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="phone">Phone Number</label>
-                    <input type="tel" id="phone" name="phone">
-                </div>
-                
-                <div class="form-group">
-                    <label for="date">Desired Event Date <span style="color: red;">*</span></label>
-                    <input type="date" id="date" name="date" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="guests">Estimated Number of Guests</label>
-                    <input type="number" id="guests" name="guests" min="50" placeholder="e.g., 150">
-                </div>
-                
-                <div class="form-group">
-                    <label for="location">Event Location/Address <span style="color: red;">*</span></label>
-                    <input type="text" id="location" name="location" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="details">Additional Details or Requests</label>
-                    <textarea id="details" name="details" rows="5" placeholder="Tell us about your event, specific flavors you'd like, or any special timing requirements."></textarea>
-                </div>
-                
-                <button type="submit">Submit Booking Request</button>
-            </form>
-            
-            <p style="text-align: center; margin-top: 20px; font-style: italic;">We will review your request and get back to you within 48 hours!</p>
+            <p>**Shaking cakes since 1985**, Winder's Funnel Cakes started small, fueled by family dedication and a passion for community.</p>
+
+            <p>Our journey began with a single stand at a **church fundraiser**. The demand for our crispy, golden treats quickly turned a simple mission into a beloved family business.</p>
+
+            <p>Winder's remains proudly **family-owned**. It was originally founded by **Ann & Tom Winder**, and the legacy of sweet perfection is now carried on by the second generation: **Tyler Winder, Barbara Winder, and Andrew Winder**.</p>
+
+            <p>We invite you to experience the tradition that started over three decades ago!</p>
+        </section>
+        
+        <section id="contact-info">
+            <h2>Book Us For Your Next Event!</h2>
+            <p>Find us currently serving at local fairs and festivals (check our social media for updates), or request us for your special occasion!</p>
+            <p>Want Winder's at your wedding or corporate event? Head over to our <a href="booking.html">**Book Our Truck**</a> page to check our availability!</p>
         </section>
     </main>
 
@@ -86,6 +50,7 @@
     </footer>
 
     <script>
+        // Simple JavaScript for mobile menu toggle
         const menuToggle = document.querySelector('.menu-toggle');
         const navLinks = document.querySelector('.nav-links');
 
