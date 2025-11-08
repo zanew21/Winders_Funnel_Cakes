@@ -1,9 +1,9 @@
 /* style.css */
 
 :root {
-    --primary-color: #A0522D; /* Sienna Brown */
-    --secondary-color: #FFFACD; /* Lemon Chiffon (for the batter/powdered sugar feel) */
-    --accent-color: #FF4500; /* Orange Red (for toppings/cherry) */
+    --primary-color: #A0522D; /* Sienna Brown (Dark/Earthy) */
+    --secondary-color: #FFFACD; /* Lemon Chiffon (Light/Batter Feel) */
+    --accent-color: #FF4500; /* Orange Red (Toppings/Pop) */
     --text-color: #333;
     --font-family: 'Arial', sans-serif;
 }
@@ -103,15 +103,17 @@ h1, h2 {
     margin-bottom: 20px;
 }
 
+/* Base Section Styling */
 section {
-    background-color: white;
     padding: 30px;
     margin-bottom: 30px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* --- Homepage Specific --- */
+/* --- Homepage Specific Styling --- */
+
+/* Hero Section */
 #hero {
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('funnel_cake_placeholder.jpg') no-repeat center center/cover;
     color: white;
@@ -134,6 +136,47 @@ section {
     font-size: 1.2em;
 }
 
+/* About/History Section (Appealing Style) */
+#about {
+    background-color: var(--primary-color); /* Sienna Brown background */
+    color: var(--secondary-color); /* Light text color */
+    border: 2px solid var(--accent-color); /* Orange Red border */
+}
+
+#about h2 {
+    color: var(--secondary-color); /* Light heading text */
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+#about p {
+    margin-bottom: 15px;
+}
+
+/* Contact/Find Us Section (Appealing Style) */
+#contact-info {
+    background-color: var(--secondary-color); /* Lemon Chiffon background */
+    border: 1px dashed var(--primary-color); /* Dashed border for a friendly look */
+    color: var(--text-color); /* Ensure text is readable */
+}
+
+#contact-info h2 {
+    color: var(--accent-color); /* Orange Red heading */
+}
+
+#contact-info a {
+    color: var(--primary-color); /* Use primary color for links */
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+#contact-info a:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
 /* --- Flavors Page Specific --- */
 .flavor-grid {
     display: grid;
@@ -142,6 +185,7 @@ section {
 }
 
 .flavor-item {
+    background-color: white;
     padding: 20px;
     border: 1px solid var(--primary-color);
     border-radius: 6px;
@@ -168,6 +212,7 @@ section {
 .form-group input[type="email"],
 .form-group input[type="tel"],
 .form-group input[type="date"],
+.form-group input[type="number"],
 .form-group textarea,
 .form-group select {
     width: 100%;
