@@ -22,21 +22,21 @@
 
     <main>
         <section id="hero">
-            <h1>Winder's Funnel Cakes!</h1>
+            <h1>Winders Funnel Cakes</h1>
             <p>Freshly made, perfectly fried, and dusted with powdered sugar perfection. Taste the tradition!</p>
         </section>
 
-        <section id="about">
+        <section id="about" class="animate-on-scroll">
             <h2>Our Sweet History</h2>
             
-            <p>Shaking cakes since 1985, Winder's Funnel Cakes started small, fueled by family dedication and a passion for community.</p>
+            <p>**Shaking cakes since 1985**, Winder's Funnel Cakes started small, fueled by family dedication and a passion for community.</p>
 
             <p>Winder's remains proudly family-owned. It was originally founded by Ann & Tom Winder, and the legacy of sweet perfection is now carried on by the second generation.</p>
 
             <p>We invite you to experience the tradition that started over three decades ago!</p>
         </section>
         
-        <section id="contact-info">
+        <section id="contact-info" class="animate-on-scroll">
             <h2>Book Us For Your Next Event!</h2>
             <p>Find us currently serving at local fairs and festivals (check our social media for updates), or request us for your special occasion!</p>
             <p>Want Winder's at your wedding or corporate event? Head over to our <a href="booking.html">Book Our Truck</a> page to check our availability!</p>
@@ -48,13 +48,79 @@
     </footer>
 
     <script>
-        // Simple JavaScript for mobile menu toggle
+        // 🍔 Mobile Menu Toggle
         const menuToggle = document.querySelector('.menu-toggle');
         const navLinks = document.querySelector('.nav-links');
 
         menuToggle.addEventListener('click', () => {
             navLinks.classList.toggle('active');
         });
+
+        // 🪄 Scroll Animation Logic (Intersection Observer)
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.2 // When 20% of the element is visible
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // If element is now visible, add the 'visible' class
+                    entry.target.classList.add('visible');
+                    // Stop observing it once it has appeared
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Select all elements marked for animation
+        const elementsToAnimate = document.querySelectorAll('.animate-on-scroll');
+        
+        // Start observing each element
+        elementsToAnimate.forEach(element => {
+            observer.observe(element);
+        });
+
+        // Form Submission Handler (Only necessary for booking.html, included here for completeness but will not run)
+        const bookingForm = document.querySelector('form');
+        
+        if (bookingForm && bookingForm.action.includes('formspree')) {
+            bookingForm.addEventListener('submit', async function(event) {
+                event.preventDefault(); 
+                const form = event.target;
+                const statusMessage = document.createElement('p');
+                statusMessage.style.textAlign = 'center';
+                statusMessage.style.marginTop = '20px';
+                statusMessage.style.fontWeight = 'bold';
+
+                try {
+                    const response = await fetch(form.action, {
+                        method: form.method,
+                        body: new FormData(form),
+                        headers: { 'Accept': 'application/json' }
+                    });
+
+                    const existingStatus = form.parentNode.querySelector('.form-status');
+                    if (existingStatus) existingStatus.remove();
+
+                    if (response.ok) {
+                        statusMessage.textContent = '✅ Success! Your booking request has been sent. We will be in touch shortly!';
+                        statusMessage.style.color = 'green';
+                        form.reset(); 
+                    } else {
+                        statusMessage.textContent = '❌ Oops! There was an error submitting your form. Please try again.';
+                        statusMessage.style.color = 'red';
+                    }
+                } catch (error) {
+                    statusMessage.textContent = '❌ Network Error. Please check your connection and try again.';
+                    statusMessage.style.color = 'red';
+                }
+                
+                statusMessage.classList.add('form-status');
+                form.parentNode.appendChild(statusMessage);
+            });
+        }
     </script>
 
 </body>
