@@ -21,11 +21,12 @@
     </header>
 
     <main>
-        <section>
+        <section class="animate-on-scroll">
             <h1>Request Winder's Funnel Cakes for Your Event</h1>
             <p style="text-align: center; margin-bottom: 30px;">We'd love to bring the sweetness to your wedding, corporate event, festival, or private party!</p>
             
-            <form action="https://formspree.io/f/movyalvy" method="POST">
+             <form action="https://formspree.io/f/movyalvy" method="POST">
+
                 
                 <div class="form-group">
                     <label for="event-type">Type of Event <span style="color: red;">*</span></label>
@@ -74,6 +75,8 @@
                     <textarea id="details" name="details" rows="5" placeholder="Tell us about your event, specific flavors you'd like, or any special timing requirements."></textarea>
                 </div>
                 
+                <input type="text" name="_gotcha" style="display:none" tabindex="-1">
+                
                 <button type="submit">Submit Booking Request</button>
             </form>
             
@@ -86,12 +89,83 @@
     </footer>
 
     <script>
+        // 🍔 Mobile Menu Toggle
         const menuToggle = document.querySelector('.menu-toggle');
         const navLinks = document.querySelector('.nav-links');
 
         menuToggle.addEventListener('click', () => {
             navLinks.classList.toggle('active');
         });
+
+        // 🪄 Scroll Animation Logic (Intersection Observer)
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.2 // When 20% of the element is visible
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // If element is now visible, add the 'visible' class
+                    entry.target.classList.add('visible');
+                    // Stop observing it once it has appeared
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Select all elements marked for animation
+        const elementsToAnimate = document.querySelectorAll('.animate-on-scroll');
+        
+        // Start observing each element
+        elementsToAnimate.forEach(element => {
+            observer.observe(element);
+        });
+
+        // 📧 Form Submission Handler (For Formspree)
+        const bookingForm = document.querySelector('form');
+        
+        // Ensure the form element exists and has an action attribute set for Formspree
+        if (bookingForm && bookingForm.action.includes('formspree')) {
+            bookingForm.addEventListener('submit', async function(event) {
+                // Prevent default submission to handle it via JS
+                event.preventDefault(); 
+                const form = event.target;
+                const statusMessage = document.createElement('p');
+                statusMessage.style.textAlign = 'center';
+                statusMessage.style.marginTop = '20px';
+                statusMessage.style.fontWeight = 'bold';
+
+                try {
+                    // Send the data using fetch
+                    const response = await fetch(form.action, {
+                        method: form.method,
+                        body: new FormData(form),
+                        headers: { 'Accept': 'application/json' }
+                    });
+
+                    // Remove any old status message
+                    const existingStatus = form.parentNode.querySelector('.form-status');
+                    if (existingStatus) existingStatus.remove();
+
+                    if (response.ok) {
+                        statusMessage.textContent = '✅ Success! Your booking request has been sent. We will be in touch shortly!';
+                        statusMessage.style.color = 'green';
+                        form.reset(); // Clear the form fields on success
+                    } else {
+                        statusMessage.textContent = '❌ Oops! There was an error submitting your form. Please try again.';
+                        statusMessage.style.color = 'red';
+                    }
+                } catch (error) {
+                    statusMessage.textContent = '❌ Network Error. Please check your connection and try again.';
+                    statusMessage.style.color = 'red';
+                }
+                
+                statusMessage.classList.add('form-status');
+                form.parentNode.appendChild(statusMessage);
+            });
+        }
     </script>
 
 </body>
